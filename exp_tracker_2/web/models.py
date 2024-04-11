@@ -53,9 +53,14 @@ class Expense(models.Model):
     title = models.CharField(
         max_length=TITLE_MAX_LEN,
     )
-    image = models.URLField()
+    image = models.URLField(
+        verbose_name='Link to Image',
+    )
     description = models.TextField(
         null=True,
         blank=True,
     )
     price = models.FloatField()
+
+    class Meta:
+        ordering = ('title', 'price')
